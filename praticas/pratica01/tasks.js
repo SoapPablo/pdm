@@ -15,7 +15,7 @@ function getTasks() {
   return tasks;
 };
 
-// f)
+// f) crie uma funçao addTask
 
 function addTask(taskName) {
 
