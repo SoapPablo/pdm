@@ -1,29 +1,36 @@
 const tasks = [
   {
     id: 1,
-    name: "",
-    completed: true
+    name: "joao",
+    completed: false
   },
   {
     id: 2,
-    name: "",
+    name: "maria",
     completed: false
   }
 ];
 
-function getTasks() {
-  return tasks;
-};
+const getTasks = () => tasks;
 
-// f) crie uma funçao addTask
-
-function addTask(taskName) {
-
+const addTask = (taskName) => {
   const newTask = {
-    id: 04,
+    id: tasks.length + 1,
     name: taskName,
-    completed: false,
-  };
-
+    completed: false
+  }
   tasks.push(newTask);
 }
+
+const removeTask = (taskId) => {
+  const index = tasks.findIndex((task) => task.id === taskId)
+  tasks.splice(index, 1)
+}
+
+const updateTask = (taskId, props) => {
+  const index = tasks.findIndex((task) => task.id === taskId)
+
+  tasks[index] = { id: taskId, ...props };
+}
+
+export { getTasks, removeTask, addTask, updateTask };
