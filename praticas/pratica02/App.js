@@ -3,11 +3,12 @@ import { View, StyleSheet } from 'react-native'
 
 const App = () => {
   return (
-    <View style = {[styles.container,styles.flexRow,styles.justifyCenter,styles.aliegnCenter]}>
-  
-      <Box color={'red'} size={50}></Box>
-      <Box color={'whrite'} size={50}></Box>
-      <Box color={'green'} size={50}></Box>
+    <View style = {[styles.container,styles.flexRow]}>
+      <Box color={'black'} size={50}></Box>
+      <Box color={'red'} size={80}></Box>
+      <Box color={'whrite'} size={80}></Box>
+      <Box color={'green'} size={80}></Box>
+      <Box color={'black'} size={50}></Box>
     </View>
   );
 };

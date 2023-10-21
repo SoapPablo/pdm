@@ -1,19 +1,19 @@
-import { getTasks, removeTask, addTask, updateTask } from './tasks'
+import { getTasks, addTask, updateTask, removeTask } from './tasks.js';
 
-const tarefas = getTasks();
+const tasks = getTasks();
 
-getTasks().forEach(element => {
-    const { id, name, completed } = element;
-
-    console.log(id, name, completed)
+tasks.forEach(task => {
+    const { id, name, completed } = task;
+    console.log(`ID: ${id}, Name: ${name}, Completed: ${completed}`);
 });
 
-addTask("react-native");
-removeTask(2)
-updateTask(1, { name: "react-native", completed: true })
+addTask("Nova Tarefa");
+removeTask(1);
+updateTask(2, { completed: true });
 
-getTasks().forEach(element => {
-    const { id, name, completed } = element;
+const updatedTasks = getTasks();
 
-    console.log(id, name, completed)
-})
+updatedTasks.forEach(task => {
+    const { id, name, completed } = task;
+    console.log(`ID: ${id}, Name: ${name}, Completed: ${completed}`);
+});
