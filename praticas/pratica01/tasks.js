@@ -1,7 +1,7 @@
 const tasks = [
-  { id: 1, name: "joao", completed: false },
-  { id: 2, name: "maria", completed: true },
-
+  { id: 1, name: "Tarefa 1", completed: false },
+  { id: 2, name: "Tarefa 2", completed: true },
+  { id: 3, name: "Tarefa 3", completed: false }
 ];
 
 function getTasks() {
@@ -9,25 +9,29 @@ function getTasks() {
 }
 
 function addTask(taskName) {
-  const newTask = {
-    id: tasks.length + 1,
-    name: taskName,
-    completed: false,
-  };
-  tasks.push(newTask);
-}
-
-function removeTask(taskId) {
-  const filteredTasks = tasks.filter(task => task.id !== taskId);
-  tasks.length = 0;
-  tasks.push(...filteredTasks);
-}
-
-function updateTask(taskId, updatedTask) {
-  const taskToUpdate = tasks.find(task => task.id === taskId);
-  if (taskToUpdate) {
-    Object.assign(taskToUpdate, updatedTask);
+  let maxId = 0;
+  for (const task of tasks) {
+    if (task.id > maxId) {
+      maxId = task.id;
+    }
   }
-}
 
-export { getTasks, addTask, updateTask, removeTask };
+  const newTask = {
+    id: maxId + 1,
+    name: taskName,
+    completed: false
+  };
+  tasks.push({ ...newTask });
+
+  function removeTask(taskId) {
+    tasks = tasks.filter(task => task.id !== taskId);
+  }
+
+  function updateTask(taskId, updatedProperties) {
+    const taskToUpdate = tasks.find(task => task.id === taskId);
+  
+    if (taskToUpdate) {
+      Object.assign(taskToUpdate, updatedProperties);
+    }
+  }
+};

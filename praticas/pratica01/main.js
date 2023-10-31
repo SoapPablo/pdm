@@ -1,19 +1,13 @@
-import { getTasks, addTask, updateTask, removeTask } from './tasks.js';
+import { getTasks, addTask, updateTask, removeTask } from './tasks';
 
-const tasks = getTasks();
+const tasksList = getTasks();
 
-tasks.forEach(task => {
-    const { id, name, completed } = task;
-    console.log(`ID: ${id}, Name: ${name}, Completed: ${completed}`);
-});
+//addTask("Minha Nova Tarefa");
 
-addTask("Nova Tarefa");
-removeTask(1);
-updateTask(2, { completed: true });
+//removeTask(2);
 
-const updatedTasks = getTasks();
+//updateTask(1, { completed: true });
 
-updatedTasks.forEach(task => {
-    const { id, name, completed } = task;
-    console.log(`ID: ${id}, Name: ${name}, Completed: ${completed}`);
+tasksList.forEach(({ id, name, completed }) => {
+    console.log(`ID: ${id}, Nome: ${name}, Concluída: ${completed}`);
 });
